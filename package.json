@@ -2,7 +2,7 @@
   "name": "your-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Chawalit-janinta.github.io/Covid-19-Realtime-data",
+  "homepage": "https://Chawalit-janinta.github.io/Covid-19-Data-Realtime",
   "// If You want to install mdbreact from our GitLab repository, please replace '4.25.6' with gitURL provided here ->": "git+https://oauth2:<YOUR-TOKEN-GOES-HERE>@git.mdbootstrap.com/mdb/react/re-pro.git",
   "dependencies": {
     "axios": "^0.19.2",
