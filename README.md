@@ -1,5 +1,5 @@
 # Covid-19 Realtime Data
-By MDBootstrap for React
+Web Framework By MDBootstrap for React
 
 ## Getting Started
 To test, contribute or just see what we did follow few easy steps:
