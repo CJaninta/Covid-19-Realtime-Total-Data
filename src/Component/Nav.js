@@ -172,7 +172,7 @@ function Nav(props) {
 
                         <div style={{ fontWeight: "600", color: "#757575", margin: "15px" }}>
                             <center>
-                                <a href="https://github.com/Chawalit-janinta/Covid-19_Datatotal" style={{ fontSize: "30px", fontWeight: "500", color: "rgba(0, 0, 0, 0.7)", margin: "50px" }}>
+                                <a href="https://github.com/Chawalit-janinta/Covid-19-Realtime-Total-Data" style={{ fontSize: "30px", fontWeight: "500", color: "rgba(0, 0, 0, 0.7)", margin: "50px" }}>
                                     <MDBIcon fab icon="github" className="pr-1" /> Github
                                 </a>
                             </center><br />
