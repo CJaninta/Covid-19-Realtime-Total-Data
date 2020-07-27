@@ -145,7 +145,7 @@ function Nav(props) {
                                         <td style={{ color: "#ff8a65", fontSize: "15px", fontWeight: "600", marginTop: "10px", cursor: "pointer" }}>{k + 1}.{el}</td>
                                         <td style={{ color: "#ffa726", fontSize: "15px", fontWeight: "600", marginTop: "10px", cursor: "pointer" }}>
                                             <MDBIcon icon="user" /> : {total_rank[k++]}
-                                            <span style={{ fontWeight: "500", fontSize: "12px", color: "#ef9a9a", marginLeft: "11px" }}> + {new_confirmed[k - 1]}</span>
+                                            <span style={{ fontWeight: "500", fontSize: "12px", color: "#ef9a9a", marginLeft: "11px" }}><br/>Today : {new_confirmed[k - 1]}</span>
                                         </td>
                                     </tr>
 

@@ -105,8 +105,8 @@ function MapView(props) {
     var src_flag = "https://www.countryflags.io/" + ct_codes + "/flat/64.png";
 
     return (
-        <div>
-            <Map style={{ width: "100vw", height: "100vh", overflowY: "hidden" }} center={[13, 100]} zoom={5} zoomControl={false}>
+        <div style={{overflow:"hidden"}}>
+            <Map style={{ width: "100vw", height: "100vh"}} center={[13, 100]} zoom={5} zoomControl={false}>
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors<br/>Web developed by Chawalit janinta "
