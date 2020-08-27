@@ -104,6 +104,10 @@ function MapView(props) {
 
     var src_flag = "https://www.countryflags.io/" + ct_codes + "/flat/64.png";
 
+    const format = num => {
+        return String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1,')
+    };
+
     return (
         <div style={{overflow:"hidden"}}>
             <Map style={{ width: "100vw", height: "100vh"}} center={[13, 100]} zoom={5} zoomControl={false}>
@@ -126,14 +130,14 @@ function MapView(props) {
                     </MDBModalHeader>
                     <MDBModalBody>
                         <h3 style={{ fontWeight: "600", color: "#757575", marginLeft: "62px" ,marginTop:"15px"}}>Total</h3>
-                        <MDBBadge pill color="warning" className="badges">Confirmed : {confirmes}</MDBBadge><br />
-                        <MDBBadge pill color="success" className="badges">Recovered : {recovers}</MDBBadge><br />
-                        <MDBBadge pill color="danger" className="badges">Deaths : {deaths}</MDBBadge>
+                        <MDBBadge pill color="warning" className="badges">Confirmed : {format(confirmes)}</MDBBadge><br />
+                        <MDBBadge pill color="success" className="badges">Recovered : {format(recovers)}</MDBBadge><br />
+                        <MDBBadge pill color="danger" className="badges">Deaths : {format(deaths)}</MDBBadge>
                         <br /><br /><br />
                         <h3 style={{ fontWeight: "600", color: "#757575", marginLeft: "62px" }}>Today</h3>
-                        <MDBBadge pill color="warning" className="badges">Confirmed : {new_confirmes}</MDBBadge><br />
-                        <MDBBadge pill color="success" className="badges">Recovered : {new_recovers}</MDBBadge><br />
-                        <MDBBadge pill color="danger" className="badges">Deaths : {new_deaths}</MDBBadge><br /><br />
+                        <MDBBadge pill color="warning" className="badges">Confirmed : {format(new_confirmes)}</MDBBadge><br />
+                        <MDBBadge pill color="success" className="badges">Recovered : {format(new_recovers)}</MDBBadge><br />
+                        <MDBBadge pill color="danger" className="badges">Deaths : {format(new_deaths)}</MDBBadge><br /><br />
                     </MDBModalBody>
                 </MDBModal>
             </MDBContainer>

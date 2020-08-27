@@ -54,6 +54,10 @@ function Nav(props) {
     }
     k = 0;
 
+    const format = num => {
+        return String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1,')
+    };
+
     //console.log(country_rank, total_rank)
 
     /*info[5]
@@ -76,15 +80,15 @@ function Nav(props) {
 
                 <MDBNavbarNav left style={{ fontSize: "25px", fontWeight: "600" }}>
 
-                    <span style={{ color: "#4B515D", fontWeight: "700", fontSize: "25px", marginRight: "50px" }} >Covid-19 Realtime Data</span>
+                    <span style={{ color: "#4B515D", fontWeight: "700", fontSize: "24px", marginRight: "50px" }} >Covid-19 Data</span>
                     <MDBNavItem active>
-                        <span style={{ color: "rgba(0, 0, 0, 0.7", marginRight: "30px" }}>&nbsp; <MDBBadge pill color="warning"><MDBIcon icon="caret-right" /> Total Confirmed : {info[1]}</MDBBadge></span>
+                        <span style={{ color: "rgba(0, 0, 0, 0.7", margin: "30px" }}>&nbsp; <MDBBadge pill color="warning"><MDBIcon icon="caret-right" /> Total Confirmed : {format(info[1])}</MDBBadge></span>
                     </MDBNavItem>
                     <MDBNavItem active>
-                        <span style={{ color: "rgba(0, 0, 0, 0.7", marginRight: "30px" }}>&nbsp; <MDBBadge pill color="success"><MDBIcon icon="caret-right" /> Total Recovered : {info[5]}</MDBBadge></span>
+                        <span style={{ color: "rgba(0, 0, 0, 0.7", margin: "30px" }}>&nbsp; <MDBBadge pill color="success"><MDBIcon icon="caret-right" /> Total Recovered : {format(info[5])}</MDBBadge></span>
                     </MDBNavItem>
                     <MDBNavItem active>
-                        <span style={{ color: "rgba(0, 0, 0, 0.7", marginRight: "30px" }}>&nbsp; <MDBBadge pill color="danger"><MDBIcon icon="caret-right" /> Total Deaths : {info[3]}</MDBBadge></span>
+                        <span style={{ color: "rgba(0, 0, 0, 0.7", margin: "30px" }}>&nbsp; <MDBBadge pill color="danger"><MDBIcon icon="caret-right" /> Total Deaths : {format(info[3])}</MDBBadge></span>
                     </MDBNavItem>
                 </MDBNavbarNav >
                 <MDBNavbarNav right>
@@ -111,19 +115,19 @@ function Nav(props) {
 
                         <h5 style={{ fontWeight: "600", marginLeft: "40px", color: "#fbc02d" }}>New Confirmed
                             <span style={{ float: "right", marginRight: "40px" }}>
-                                {info[0]}
+                                {format(info[0])}
                             </span>
                         </h5>
 
                         <h5 style={{ fontWeight: "600", marginLeft: "40px", color: "#81c784" }}>New Recovered
                             <span style={{ float: "right", marginRight: "40px" }}>
-                                {info[4]}
+                                {format(info[4])}
                             </span>
                         </h5>
 
                         <h5 style={{ fontWeight: "600", marginLeft: "40px", color: "#e57373" }}>New Deaths
                             <span style={{ float: "right", marginRight: "40px" }}>
-                                {info[2]}
+                                {format(info[2])}
                             </span>
                         </h5>
                         <br />
@@ -144,8 +148,8 @@ function Nav(props) {
                                     <tr>
                                         <td style={{ color: "#ff8a65", fontSize: "15px", fontWeight: "600", marginTop: "10px", cursor: "pointer" }}>{k + 1}.{el}</td>
                                         <td style={{ color: "#ffa726", fontSize: "15px", fontWeight: "600", marginTop: "10px", cursor: "pointer" }}>
-                                            <MDBIcon icon="user" /> : {total_rank[k++]}
-                                            <span style={{ fontWeight: "500", fontSize: "12px", color: "#ef9a9a", marginLeft: "11px" }}><br/>Today : {new_confirmed[k - 1]}</span>
+                                            <MDBIcon icon="user" /> : {format(total_rank[k++])}
+                                            <span style={{ fontWeight: "500", fontSize: "12px", color: "#ef9a9a", marginLeft: "11px" }}><br/>Today : {format(new_confirmed[k - 1])}</span>
                                         </td>
                                     </tr>
 
