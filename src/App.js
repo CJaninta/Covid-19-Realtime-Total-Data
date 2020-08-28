@@ -16,18 +16,19 @@ class App extends Component {
       province: '',
       confirmed: 0,
       recoverd: 0,
-      country_code:'',
+      country_code: '',
       death: 0,
       new_confirmed: 0,
       new_recoverd: 0,
-      new_death: 0
+      new_death: 0,
+      showMap : false
     };
   }
 
   componentDidMount() {
     axios.get(api_location)
       .then(response => {
-        this.setState({ location: response.data.locations })
+        this.setState({ location: response.data.locations ,showMap:true})
       })
       .catch((error) => {
         console.log(error);
@@ -52,56 +53,67 @@ class App extends Component {
 
   render() {
 
-    const toggle = (nr,country,province,country_code,confirmed,death) => () => {
+    const toggle = (nr, country, province, country_code, confirmed, death) => () => {
       let modalNumber = 'modal' + nr
       this.setState({
         [modalNumber]: !this.state[modalNumber]
       });
-     
-      for(var key in this.state.case.Countries)
-      {
-         if(country_code == this.state.case.Countries[key].CountryCode)
-         {
-            this.setState({
-              nation:country,
-              province:province,
-              country_code:country_code,
-              confirmed:confirmed,
-              death:death,
-              recoverd:this.state.case.Countries[key].TotalRecovered,
-              new_confirmed:this.state.case.Countries[key].NewConfirmed,
-              new_death:this.state.case.Countries[key].NewDeaths,
-              new_recoverd:this.state.case.Countries[key].NewRecovered,
-            })
-         }
+
+      for (var key in this.state.case.Countries) {
+        if (country_code == this.state.case.Countries[key].CountryCode) {
+          this.setState({
+            nation: country,
+            province: province,
+            country_code: country_code,
+            confirmed: confirmed,
+            death: death,
+            recoverd: this.state.case.Countries[key].TotalRecovered,
+            new_confirmed: this.state.case.Countries[key].NewConfirmed,
+            new_death: this.state.case.Countries[key].NewDeaths,
+            new_recoverd: this.state.case.Countries[key].NewRecovered,
+          })
+        }
       }
     }
 
+    const map = (
+      <Map
+        locations={this.state.location}
+        cases={this.state.case}
+        Nations={this.state.nation}
+        Provinces={this.state.province}
+        confirmes={this.state.confirmed}
+        recovers={this.state.recoverd}
+        deaths={this.state.death}
+        toggles={toggle}
+        modals={this.state.modal9}
+        ct_codes={this.state.country_code}
+        new_confirmes={this.state.new_confirmed}
+        new_recovers={this.state.new_recoverd}
+        new_deaths={this.state.new_death}
+      />
+    );
+
+    const loading = (
+      <div style={{ marginTop: '300px' }}>
+        <center>
+          <div className="spinner-border text-danger" role="status" style={{ width: '100px', height: '100px', margin: '30px' }}>
+            <span className="sr-only">Loading...</span>
+          </div>
+          <h2>Loading ...</h2>
+        </center>
+      </div>
+    );
+
     return (
       <div>
-
         <Nav
           cases={this.state.case}
           toggles={toggle}
           modals={this.state.modal12}
           modals_2={this.state.modal14}
         />
-        <Map
-          locations={this.state.location}
-          cases={this.state.case}
-          Nations={this.state.nation}
-          Provinces={this.state.province}
-          confirmes={this.state.confirmed}
-          recovers={this.state.recoverd}
-          deaths={this.state.death}
-          toggles={toggle}
-          modals={this.state.modal9}
-          ct_codes={this.state.country_code}
-          new_confirmes={this.state.new_confirmed}
-          new_recovers={this.state.new_recoverd}
-          new_deaths={this.state.new_death}
-        />
-
+        {this.state.showMap?map:loading}
       </div>
     );
   }
