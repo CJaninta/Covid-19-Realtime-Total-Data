@@ -16,8 +16,8 @@ To test, contribute or just see what we did follow few easy steps:
 - https://api.covid19api.com/summary?fbclid=IwAR1fMdspy-mdK88tkr6qAXeGQckuQPAGx9ptE7rYOaR7VpnJNYJs3Ji-Cjk
 
 ## Example 
-![image](https://imgur.com/QR7Qcqm)
+![image](https://imgur.com/QR7Qcqm.jpg)
 
-![image](https://imgur.com/iDaxYWb)
+![image](https://imgur.com/iDaxYWb.jpg)
 
-![image](https://imgur.com/9a7n41W)
+![image](https://imgur.com/9a7n41W.jpg)
